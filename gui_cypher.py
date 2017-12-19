@@ -33,8 +33,10 @@ class Application(Frame):
 # main
 root = Tk()
 root.title("Caesar Cypher")
-root.geometry("250x1200")
+if 'enchant' in sys.modules:
+    root.geometry("250x200")
+else:
+    root.geometry("250x1200")
 root.resizable(width = FALSE, height = FALSE)
-
 app = Application(root)
 root.mainloop()
