@@ -2,11 +2,9 @@
 import string
 import sys
 
-try:
-    import enchant
-    d = enchant.Dict("en_US")
-except:
-    print("Unable to import enchant library. Try installing it.")
+import enchant
+d = enchant.Dict("en_US")
+
 
 # CONTAINS THE STRING abcdefghijklmnopqrstuvwxyz
 ltrs = list(string.ascii_lowercase)
@@ -50,6 +48,15 @@ def caesar_cipher(k):
 if 'enchant' in sys.modules:
     def check_cipher(cipher_dna, sentence):
         return len(list(filter(lambda z: d.check(z), apply_cipher(cipher_dna, sentence).split())))
+    def unencrypt(sentence):
+        x = [(caesar_cipher(k), check_cipher(caesar_cipher(k), sentence)) for k in range(26)]
+        return apply_cipher(max(x, key=lambda y: y[1])[0], sentence)
+
+if 'enchant' not in sys.modules:
+    def check_cipher(cipher_dna, sentence, dictionary):
+        pass
+    def unencrypt(sentence, dictionary):
+        pass
 
 if __name__ == "__main__":
     sentence = "gzo'n epno ovfz v hjhzio oj vkkmzxdvoz njhzjiz wmjrndib /m/jncv rcj yjzni'o fijr rcvo kkz noviyn ajm."

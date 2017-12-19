@@ -28,7 +28,7 @@ class Application(Frame):
     def decryption(self):
         cypher_text = self.text_entry.get()
         self.cracked_return.delete(0.0, END)
-        self.cracked_return.insert(0.0, cypher_text)
+        self.cracked_return.insert(0.0, unencrypt(cypher_text))
 
 # main
 root = Tk()
