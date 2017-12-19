@@ -31,5 +31,18 @@ def apply_cipher(cipher_dna, sentence):
     # RETURN STRING OF THE SENTENCE AFTER APPLYING THE CIPHER
     return make_sentence(apply_dictionary(cipher_dna, sentence))
 
+# SHIFTS THE ORIGINAL DNA K CHARACTERS
+def caesar_cipher(k):
+    lsc = [i for i in ltrs]
+    for i in range(k):
+        lscc = list(map(lambda x: lsc[x], [i for i in range(1, 26)]))
+        lscc.append(lsc[0])
+        lsc = lscc
+    return "".join(lsc)
+
 if __name__ == "__main__":
     print(apply_cipher("zabcdefghijklmnopqrstuvwxy", "gdkkn sgdqd"))
+    for i in range(26):
+        print("cypher value: " + str(i))
+        print(caesar_cipher(i))
+        print(apply_cipher(caesar_cipher(i), "gdkkn sgdqd"))
