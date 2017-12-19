@@ -1,4 +1,5 @@
 from tkinter import *
+from cipherfun import *
 
 class Application(Frame):
 
