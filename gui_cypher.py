@@ -19,14 +19,16 @@ class Application(Frame):
         self.cipher_button = Button(self, text = "Decrypt!", command = self.decryption)
         self.cipher_button.grid()
 
-        # LABEL AND ENTRY FIELD FOR CRACKED TEXT
+        # LABEL AND RETURN FIELD FOR CRACKED TEXT
         self.cracked_label = Label(self, text = "Cracked text:")
         self.cracked_label.grid()
-        self.cracked_entry = Entry(self, width = 40)
-        self.cracked_entry.grid()
+        self.cracked_return = Text(self, width = 30, height = 2)
+        self.cracked_return.grid()
 
     def decryption(self):
-        pass
+        cypher_text = self.text_entry.get()
+        self.cracked_return.delete(0.0, END)
+        self.cracked_return.insert(0.0, cypher_text)
 
 # main
 root = Tk()
