@@ -2,9 +2,11 @@
 import string
 import sys
 
-import enchant
-d = enchant.Dict("en_US")
-
+try:
+    import enchant
+    d = enchant.Dict("en_US")
+except:
+    print("Unable to import enchant. Please try installing the library.")
 
 # CONTAINS THE STRING abcdefghijklmnopqrstuvwxyz
 ltrs = list(string.ascii_lowercase)
@@ -53,18 +55,13 @@ if 'enchant' in sys.modules:
         return apply_cipher(max(x, key=lambda y: y[1])[0], sentence)
 
 if 'enchant' not in sys.modules:
-    def check_cipher(cipher_dna, sentence, dictionary):
-        pass
-    def unencrypt(sentence, dictionary):
-        pass
+    def unencrypt(sentence):
+        x = ""
+        for i in range(26):
+            x += "cypher value: " + str(i) + "\n"
+            x += str(apply_cipher(caesar_cipher(i), sentence)) + "\n"
+        return x
 
 if __name__ == "__main__":
     sentence = "gzo'n epno ovfz v hjhzio oj vkkmzxdvoz njhzjiz wmjrndib /m/jncv rcj yjzni'o fijr rcvo kkz noviyn ajm."
-    if 'enchant' not in sys.modules:
-        for i in range(26):
-            print("cypher value: " + str(i))
-            print(caesar_cipher(i))
-            print(apply_cipher(caesar_cipher(i), sentence))
-    else:
-        x = [(caesar_cipher(k), check_cipher(caesar_cipher(k), sentence)) for k in range(26)]
-        print(apply_cipher(max(x, key = lambda y: y[1])[0], sentence))
+    print(unencrypt(sentence))

@@ -22,7 +22,7 @@ class Application(Frame):
         # LABEL AND RETURN FIELD FOR CRACKED TEXT
         self.cracked_label = Label(self, text = "Cracked text:")
         self.cracked_label.grid()
-        self.cracked_return = Text(self, width = 30, height = 2)
+        self.cracked_return = Text(self, width = 30, height = 52)
         self.cracked_return.grid()
 
     def decryption(self):
@@ -33,7 +33,7 @@ class Application(Frame):
 # main
 root = Tk()
 root.title("Caesar Cypher")
-root.geometry("250x200")
+root.geometry("250x1200")
 root.resizable(width = FALSE, height = FALSE)
 
 app = Application(root)
