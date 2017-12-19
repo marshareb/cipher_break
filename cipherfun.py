@@ -1,5 +1,12 @@
 # METHODS TO IMPLEMENT CIPHERS
 import string
+import sys
+
+try:
+    import enchant
+    d = enchant.Dict("en_US")
+except:
+    print("Unable to import enchant library. Try installing it.")
 
 # CONTAINS THE STRING abcdefghijklmnopqrstuvwxyz
 ltrs = list(string.ascii_lowercase)
@@ -18,7 +25,7 @@ def apply_cipher(cipher_dna, sentence):
     def apply_dictionary(cipher_dna, sentence):
         if len(sentence) == 0:
             raise ValueError("Sentence cannot be empty.")
-        sentence = sentence.lower()
+        sentence = ''.join([i for i in sentence.lower() if i in ltrs or i == " "])
         items = make_dictionary(cipher_dna)
         return list(map(lambda x: ''.join(x), list(map(lambda x: list(map(lambda y: items[y], x)), sentence.split()))))
 
@@ -40,9 +47,17 @@ def caesar_cipher(k):
         lsc = lscc
     return "".join(lsc)
 
+if 'enchant' in sys.modules:
+    def check_cipher(cipher_dna, sentence):
+        return len(list(filter(lambda z: d.check(z), apply_cipher(cipher_dna, sentence).split())))
+
 if __name__ == "__main__":
-    print(apply_cipher("zabcdefghijklmnopqrstuvwxy", "gdkkn sgdqd"))
-    for i in range(26):
-        print("cypher value: " + str(i))
-        print(caesar_cipher(i))
-        print(apply_cipher(caesar_cipher(i), "gdkkn sgdqd"))
+    sentence = "gzo'n epno ovfz v hjhzio oj vkkmzxdvoz njhzjiz wmjrndib /m/jncv rcj yjzni'o fijr rcvo kkz noviyn ajm."
+    if 'enchant' not in sys.modules:
+        for i in range(26):
+            print("cypher value: " + str(i))
+            print(caesar_cipher(i))
+            print(apply_cipher(caesar_cipher(i), sentence))
+    else:
+        x = [(caesar_cipher(k), check_cipher(caesar_cipher(k), sentence)) for k in range(26)]
+        print(apply_cipher(max(x, key = lambda y: y[1])[0], sentence))
