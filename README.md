@@ -33,6 +33,13 @@ For Windows:
 
 Follow the directions for installing PyEnchant [here](http://pythonhosted.org/pyenchant/download.html). 
 
+Notice that the C++ Enchant Library isn't necessary, so you may skip the above steps if you aren't able to download C++. Once you have the required libraries, run
+
+``` 
+python3 gui_cypher.py
+```
+
+and you're done.
 
 ## Authors
 
