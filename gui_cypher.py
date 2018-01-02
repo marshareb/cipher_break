@@ -22,7 +22,7 @@ class Application(Frame):
         # LABEL AND RETURN FIELD FOR CRACKED TEXT
         self.cracked_label = Label(self, text = "Cracked text:")
         self.cracked_label.grid()
-        self.cracked_return = Text(self, width = 30, height = 52)
+        self.cracked_return = Text(self, width = 30, height = 52, wrap = WORD)
         self.cracked_return.grid()
 
     def decryption(self):
