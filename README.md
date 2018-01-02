@@ -7,7 +7,7 @@ Notice that we have that each DNA cipher is of the form "ZABCDEFGHIJKLMOPQRSTUVW
 
 ### Using the GUI 
 
-***Note:*** With this configuration, the GUI will output all 26 possible decyphered combinations of the cyphered text. If you want it to print just the one correct english output, you will need to download the Enchant library which uses C++. Installation is explained in the ***Optional Enchanct Library*** section below. 
+***Note:*** With this configuration, the GUI will output all 26 possible decyphered combinations of the cyphered text. If you want it to print just the one correct english output, you will need to download the Enchant library which uses C++. Installation is explained in the *Optional Enchant Library* section below. 
 
 Simply run the gui_cypher.py program and the GUI will initialize and launch. 
 
