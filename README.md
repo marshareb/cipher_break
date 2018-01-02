@@ -26,6 +26,7 @@ Enter your encrypted text in the "Encrypted Text" entry box. When you hit the "D
 
 ## Acknowledgements
 * Enchant ppl
+* J Duncan, IU Informatics
 
 
 
