@@ -15,18 +15,33 @@ Enter your encrypted text in the "Encrypted Text" entry box. When you hit the "D
 
 ## Optional C++ Enchant Library
 
-### What It Is
+With the Enchant library, the program will try to "guess" the best outcome. The guessing method is by going through each possible Caesar Cipher permutation, and using the enchant library finding the guess which has the most English words. 
 
 ### Installation Guide
 
+Start by pulling the file from Github, and then go to the directory. Once in the directory, follow the directions below.
+
+For Linux/Mac:
+
+Run the command
+
+```
+pip install -r requirements.txt
+```
+
+For Windows:
+
+Follow the directions for installing PyEnchant [here](http://pythonhosted.org/pyenchant/download.html). 
+
+
 ## Authors
 
-* **James Marshal Reber** 
+* **James Marshall Reber** 
 * **Drake White**
 
 ## Acknowledgements
-* Enchant ppl
-* J Duncan, IU Informatics
+* [PyEnchant](http://pythonhosted.org/pyenchant/)
+* [J Duncan, IU Informatics](https://www.sice.indiana.edu/all-people/profile.html?profile_id=193)
 
 
 
